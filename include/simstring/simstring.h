@@ -615,6 +615,11 @@ public:
         m_max_size = max_size;
         // The maximum size corresponds to the number of indices in the database.
         m_indices.resize(max_size);
+        // std::cerr << __func__ << "\t" << "max_size : " << m_indices.size() << "\n"; // kobi
+        // warming-up
+        for(int i=1 ; i < max_size ;i++) {
+            hashtbl_type& tbl = open_index(m_name, i);
+        }
     }
 
     /**
@@ -778,6 +783,7 @@ protected:
             if (index.image.is_open()) {
                 index.table.open(index.image.data(), index.image.size());
             }
+            // std::cerr << __func__ << "\topen file " << base << ":: " << size << "\n";
         }
 
         return index.table;
