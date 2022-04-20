@@ -617,9 +617,10 @@ public:
         m_indices.resize(max_size);
         // std::cerr << __func__ << "\t" << "max_size : " << m_indices.size() << "\n"; // kobi
         // warming-up
+		/*
         for(int i=1 ; i < max_size ;i++) {
             hashtbl_type& tbl = open_index(m_name, i);
-        }
+        }*/
     }
 
     /**
